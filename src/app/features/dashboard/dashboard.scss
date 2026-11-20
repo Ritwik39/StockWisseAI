@@ -55,6 +55,11 @@ button {
   font-weight: bold;
 }
 
+.negative {
+  color: #dc2626;
+  font-weight: bold;
+}
+
 @media (max-width: 700px) {
   .stock-cards {
     grid-template-columns: 1fr;

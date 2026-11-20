@@ -7,7 +7,7 @@
 
     <input type="text" placeholder="Enter stock name..." [(ngModel)]="searchTerm" />
 
-    <button [disabled]="searchTerm.trim().length === 0" (click)="searchStock()">Search</button>
+    <button (click)="searchStock()">Search</button>
   </section>
 
   <section class="stock-section">
@@ -18,7 +18,7 @@
         <div class="stock-card">
           <h3>{{ stock.name }}</h3>
           <h2>₹{{ stock.price }}</h2>
-          <p class="positive">{{ stock.change }}</p>
+          <p [class]="stock.change.startsWith('-') ? 'negative' : 'positive'">{{ stock.change }}</p>
         </div>
       }
 
