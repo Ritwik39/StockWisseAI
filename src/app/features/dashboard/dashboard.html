@@ -1,0 +1,30 @@
+<div class="dashboard-container">
+  <h1>StockWise AI</h1>
+  <p>Your intelligent stock market research assistant</p>
+
+  <section class="search-section">
+    <h2>Search Stocks</h2>
+
+    <input type="text" placeholder="Enter stock name..." [(ngModel)]="searchTerm" />
+
+    <button [disabled]="searchTerm.trim().length === 0" (click)="searchStock()">Search</button>
+  </section>
+
+  <section class="stock-section">
+    <h2>Stock Results</h2>
+
+    <div class="stock-cards">
+      @for (stock of filteredStocks; track stock.name) {
+        <div class="stock-card">
+          <h3>{{ stock.name }}</h3>
+          <h2>₹{{ stock.price }}</h2>
+          <p class="positive">{{ stock.change }}</p>
+        </div>
+      }
+
+      @if (filteredStocks.length === 0) {
+        <p>No matching stocks found.</p>
+      }
+    </div>
+  </section>
+</div>
